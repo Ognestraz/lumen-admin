@@ -1,0 +1,94 @@
+/*.image-icon-list .sortable { list-style-type: none; margin: 0; padding: 0; }
+.image-icon-list .sortable li { margin: 3px 3px 3px 0; height: 100px; padding: 1px; font-size: 1em; 
+    position: relative;
+}
+
+.image-icon-list.image-full .sortable li { margin: 3px 3px 3px 0; height: auto; padding: 1px; font-size: 1em; 
+    position: relative;
+}
+
+.image-icon-list .sortable li a.act-checkbox {
+    display: block;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    background: url('/assets/images/checkbox_full.png');
+}
+
+.image-icon-list .sortable li.disabled a.act-checkbox {
+    background: url('/assets/images/checkbox_empty.png');
+}
+
+.image-icon-list.image-icon .sortable li { float: left; width: 100px;  }
+.icon-list.image-icon .full { display: none;}
+
+
+.image-icon-list.image-full .sortable li { width: 100%; }
+.icon-list.image-full .full { margin-left: 110px;}
+
+
+
+.image-icon-list .sortable li .image{ 
+    width: 100px; 
+    height: 100px; 
+    position: absolute;
+}
+
+.image-icon-list .sortable li a.in-image {
+    position: absolute;
+}
+
+.image-icon-list .sortable li a.edit { 
+    left: 25px;
+}
+
+.image-icon-list .sortable li a.zoom { 
+    left: 40px;
+    top: 40px;
+}
+
+.image-icon-list .sortable li a.zoom img { 
+    width: 32px;
+    height: 32px;
+}
+
+.image-icon-list .sortable li a.act { 
+    left: 5px;
+}
+
+.image-icon-list .sortable li a.delete { 
+    left: 80px;
+}
+*/
+#video-list .sortable { list-style-type: none; margin: 0; padding: 0; width: 800px; }
+#video-list .sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 240px; height: 180px; font-size: 1em; 
+    position: relative; overflow: hidden;
+}
+
+#video-list .sortable li .video{ 
+    width: 240px; 
+    max-height: 100%; 
+    display: block;
+    position: absolute;
+}
+
+#video-list .sortable li a {
+    position: absolute;
+}
+
+#video-list .sortable li a.edit { 
+    left: 25px;
+}
+
+#video-list .sortable li a.zoom { 
+    left: 100px;
+    top: 70px;
+}
+
+#video-list .sortable li a.act { 
+    left: 5px;
+}
+
+#video-list .sortable li a.delete { 
+    left: 220px;
+}

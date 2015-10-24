@@ -1,0 +1,1 @@
+<a href="#tabs-1"><?=$image->filename?></a>

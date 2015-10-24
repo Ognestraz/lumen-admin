@@ -1,0 +1,104 @@
+.center {
+    text-align: center;
+}
+
+.form-block-success {
+    background: #91ea91;
+}
+
+.form-block-warning {
+    background: #fcffa7;
+}
+
+.form-block-error {
+    background: #ef9696;
+}
+
+.progress-bar-file-api {
+    height: 30px;
+    margin-bottom: 0px;
+    margin-top: 2px;
+}
+
+.form-group-sm .form-control {
+    height: 25px;
+}
+
+.form-group-sm .input-group-btn .btn {
+    padding: 2px 6px 1px 6px;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.mb5 {
+    margin-bottom: 10px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mb15 {
+    margin-bottom: 15px;
+}
+
+.pr0 {
+    padding-right: 0; 
+}
+
+.disabled {
+    color: #b0b0b0;
+}
+
+label.sm-label {
+    margin: 0;
+    font-weight: 400;
+    font-size: small;    
+}
+
+.fixed-image-panel {
+    min-height: 100px;
+    max-height: 320px;
+    overflow-y: scroll;
+    overflow-x: hidden;    
+}
+
+.progress__bar {
+    width: 0%;
+    height: 100%;
+    background: #00ff00;
+    opacity: 0.5;
+}
+
+#myModal .modal-dialog {
+    
+    width: 80%;
+    
+}
+#subModal .modal-dialog {
+    
+    width: 80%;
+    
+}
+
+input.error {
+    
+    border: 2px solid #FF454C;
+    
+}
+
+input.long {
+    
+    width: 400px;
+    
+}
