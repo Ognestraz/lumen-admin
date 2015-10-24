@@ -63,10 +63,6 @@ $app->singleton(
      // Laravel\Lumen\Http\Middleware\VerifyCsrfToken::class,
  ]);
 
- $app->routeMiddleware([
-    'auth.admin' => 'Admin\Http\Middleware\AuthenticateAdmin'
- ]);
-
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
@@ -81,11 +77,6 @@ $app->singleton(
 $app->configure('app'); 
  
 $app->register(Admin\Providers\AppServiceProvider::class);
-
-$app->register('Collective\Html\HtmlServiceProvider');
-$app->register('Intervention\Image\ImageServiceProvider');
-
-$app->register(Admin\Providers\MacroServiceProvider::class);
 //$app->register(App\Providers\DatabaseServiceProvider::class);
 
 
@@ -99,12 +90,5 @@ $app->register(Admin\Providers\MacroServiceProvider::class);
 | can respond to, as well as the controllers that may handle them.
 |
 */
-
-
-
-
-$app->group(['namespace' => 'Admin\Http\Controllers'], function ($app) {
-    require __DIR__.'/../app/Http/routes.php';
-});
 
 return $app;

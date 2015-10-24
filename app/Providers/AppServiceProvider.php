@@ -25,7 +25,29 @@ class AppServiceProvider extends ServiceProvider
         
         $this->loadViewsFrom(app()->resourcePath('views'), 'admin');
         
-        require_once app()->basePath('app/Support/helpers.php');
+        require_once __DIR__.'/../Support/helpers.php';
+        
+        $app = app();
+        $app->routeMiddleware([
+           'auth.admin' => 'Admin\Http\Middleware\AuthenticateAdmin'
+        ]);        
+        
+        $app->register('Collective\Html\HtmlServiceProvider');
+        $app->register('Intervention\Image\ImageServiceProvider');
+
+        $app->register(MacroServiceProvider::class);        
+        
+        $app->group(['namespace' => 'Admin\Http\Controllers'], function ($app) {
+            require __DIR__.'/../Http/routes.php';
+        });
+        
+        $this->publishes([
+            __DIR__.'/../../public/build' => base_path('public/build'),
+            __DIR__.'/../../public/css' => base_path('public/css'),
+            __DIR__.'/../../public/js' => base_path('public/js'),
+           // __DIR__.'/database' => base_path('database')
+        ]);        
+        
     }
     
     
