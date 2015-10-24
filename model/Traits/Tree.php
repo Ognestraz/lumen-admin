@@ -70,9 +70,7 @@ trait Tree {
             $parent = $this->parent;
 
             if ($parent) {
-
                 do {
-
                     $item = $parent_list[$parent];
                     $path_list[] = array('id' => $item->id,
                         'name' => $item->name,
@@ -84,7 +82,6 @@ trait Tree {
                 } while (isset($parent_list[$parent]));
 
                 $path_list = array_reverse($path_list);
-
             }
 
             $this->pathParent = $path_list;
