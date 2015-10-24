@@ -78,7 +78,7 @@ class Site extends Model
     
     public function link() 
     {
-        return URL::to('/').'/'.$this->path;
+        return url('/').'/'.$this->path;
     }
     
     public function template($template, $childsTemplate = null)

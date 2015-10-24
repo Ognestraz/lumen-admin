@@ -67,7 +67,7 @@ trait File {
         $part_path = $part ? $part.'/' : '';
         $filename = $this->imageDirSrc.$part_path.$this->filename;
         
-        return is_file($filename) ? URL::to('/').'/'.$filename : $default;
+        return is_file($filename) ? url('/').'/'.$filename : $default;
         
     }
     

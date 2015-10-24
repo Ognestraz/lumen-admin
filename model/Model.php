@@ -158,7 +158,7 @@ class Model extends \Illuminate\Database\Eloquent\Model
             
         }
         
-        $pagination->setBaseUrl(URL::to('/').'/'.strtolower(class_basename($list->getModel())).'/items');
+        $pagination->setBaseUrl(url('/').'/'.strtolower(class_basename($list->getModel())).'/items');
         
         return $pagination->appends($param)->links($view);
     }

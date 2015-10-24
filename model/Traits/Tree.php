@@ -78,7 +78,7 @@ trait Tree {
                         'name' => $item->name,
                         'title' => $item->title,
                         'path' => $item->path,
-                        'link' => URL::to('/').'/'.$item->path);
+                        'link' => url('/').'/'.$item->path);
                     $parent = $item->parent;
 
                 } while (isset($parent_list[$parent]));

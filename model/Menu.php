@@ -1,8 +1,8 @@
 <?php namespace Model;
 
-use URL;
 use DB;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Request;
 
 class Menu extends Model
 {
@@ -13,7 +13,7 @@ class Menu extends Model
 
     public function active($parent = false) 
     {
-        $path = substr(URL::current(), strlen(URL::to('/')) + 1);
+        $path = substr(Request::fullUrl(), strlen(url('/')) + 1);
         
         if ($parent) {
             
@@ -32,7 +32,7 @@ class Menu extends Model
     
     public function link() 
     {
-        return URL::to('/').'/'.$this->path;
+        return url('/').'/'.$this->path;
     }
     
     public function save(array $options = array()) 
