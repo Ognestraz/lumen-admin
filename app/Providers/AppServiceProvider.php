@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
             class_alias('Intervention\Image\Facades\Image', 'Img');
         }        
         
-        $this->loadViewsFrom(app()->resourcePath('views'), 'admin');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'admin');
         
         require_once __DIR__.'/../Support/helpers.php';
         
