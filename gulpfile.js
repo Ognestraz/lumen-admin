@@ -35,10 +35,6 @@ elixir(function(mix) {
         "js/morris-data.js",
         "dist/js/sb-admin-2.js"
     ], 'public/js/admin-sb2.js', 'resources/assets/sb-admin-2');
-//    .scripts([
-//        "admin.js",
-//        "admin-sb2.js"
-//    ], 'public/js/admin-all.js', 'resources/assets/temp');
 });
 
 elixir(function(mix) {
