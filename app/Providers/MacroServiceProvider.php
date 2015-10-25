@@ -38,7 +38,7 @@ class MacroServiceProvider extends HtmlServiceProvider
 
             }
 
-            $folder = base_path() . '/resources/views/site/site/';
+            $folder = base_path() . '/resources/views/site/';
 
             if (is_dir($folder)) {
 
