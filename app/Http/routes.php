@@ -11,10 +11,6 @@
 |
 */
 
-$app->group(['namespace' => 'Admin\Http\Controllers'], function () use ($app) {
-    $app->get('image/{variant}/{path:[a-zA-Z0-9_\-\/\.]*}', array('uses' => 'ImageController@image'));
-});
-
 $app->group([
     'prefix' => config('app.admin_url'),
     'namespace' => 'Admin\Http\Controllers'

@@ -19,9 +19,9 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
- $app->withFacades();
+$app->withFacades();
 
- $app->withEloquent();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -90,5 +90,9 @@ $app->register(Admin\Providers\AppServiceProvider::class);
 | can respond to, as well as the controllers that may handle them.
 |
 */
+
+$app->group(['namespace' => 'Admin\Http\Controllers'], function () use ($app) {
+    $app->get('image/{variant}/{path:[a-zA-Z0-9_\-\/\.]*}', array('uses' => 'ImageController@image'));
+});
 
 return $app;
