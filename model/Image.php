@@ -23,7 +23,7 @@ class Image extends Model
         'path' => 'unique:images,path,{id},id'
     );
     
-    protected $variants = [
+    protected $defaultVariants = [
         'original' => [],        
         'icon' => [
             ['fit' => ['width' => 100, 'height' => 100]]
@@ -34,7 +34,12 @@ class Image extends Model
         'preview' => [
             ['fit' => ['width' => 300, 'height' => 200]]
         ]        
-    ];    
+    ];
+    
+    public function getVariants()
+    {
+        return array_merge($this->defaultVariants, config('app.image.variants', []));
+    }    
     
     public function scopeDefault($query)
     {
@@ -160,7 +165,8 @@ class Image extends Model
     
     public function saveVariant($img, $variant) 
     {
-        $variantMake = $this->variants[$variant];
+        $variants = $this->getVariants();
+        $variantMake = $variants[$variant];
         foreach ($variantMake as $item) {
             $this->_makeList($img, $item);
         }
@@ -170,7 +176,8 @@ class Image extends Model
     
     public function show($variant)
     {
-        if (!isset($this->variants[$variant])) {
+        $variants = $this->getVariants();
+        if (!isset($variants[$variant])) {
             throw new ModelNotFoundException();
         }
         
@@ -180,13 +187,6 @@ class Image extends Model
         $this->saveVariant($img, $variant);
 
         return $img->response('jpg');
-    }    
-    
-    
-    public function getVariants()
-    {
-        $settings = $this->getSettings();
-        return !empty($settings['image']) ? array_keys($settings['image']) : array();
     }    
     
     protected function _createVariant($file, $variant)
