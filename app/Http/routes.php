@@ -46,7 +46,7 @@ $app->group([
         $app->get('/menu/act/{id}', array('uses' => 'MenuController@act'));
         routeResource($app, '/menu', 'MenuController');        
 
-        $app->get('/image/group', array('uses' => 'ImageController@group'));
+        $app->post('/image/group', array('uses' => 'ImageController@group'));
         $app->get('/image/act/{id}', array('uses' => 'ImageController@act'));
         $app->get('/image/content/{id}/{view}', array('uses' => 'ImageController@content'));
         $app->get('/image/upload', array('uses' => 'ImageController@upload'));
