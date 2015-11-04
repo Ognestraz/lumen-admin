@@ -45,7 +45,8 @@ class AppServiceProvider extends ServiceProvider
             __DIR__.'/../../public/build' => base_path('public/build'),
             __DIR__.'/../../public/css' => base_path('public/css'),
             __DIR__.'/../../public/js' => base_path('public/js'),
-           // __DIR__.'/database' => base_path('database')
+            __DIR__.'/../../database/migrations' => base_path('database/migrations'),
+            __DIR__.'/../../database/seeds' => base_path('database/seeds')
         ]);        
         
     }
