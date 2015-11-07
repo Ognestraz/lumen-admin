@@ -2,22 +2,21 @@
 
 trait Image 
 {
-
     public function images($part = null)
     {
         $model = $this->hasMany('Model\Image', 'model_id');
         
-        if (!empty($part)) {
-            
+        if (empty($part)) {
+            return $model;
+        }
+
+        $model->where(function($query) use ($part) {
             $partArray = explode('+', $part);
             foreach ($partArray as $key => $item) {
-                
-                $key ? $model->orWhere('part', $item) : $model->where('part', $item);
-                
+                $key ? $query->orWhere('part', $item) : $query->where('part', $item);
             }
-            
-        }
-        
+        });
+
         return $model;
     }
     
@@ -25,5 +24,4 @@ trait Image
     {
         return $this->images('main')->orderBy('sort', 'asc')->first();
     }
-
 }
