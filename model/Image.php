@@ -171,7 +171,12 @@ class Image extends Model
             $this->_makeList($img, $item);
         }
         
-        $img->save(app()->basePath('public') . '/image/' . $variant . '/' . $this->path);        
+        $dir = app()->basePath('public') . '/image/' . $variant . '/';
+        if (false === is_dir($dir)) {
+            mkdir($dir);
+        }
+        
+        $img->save($dir . $this->path);        
     }
     
     public function show($variant)
