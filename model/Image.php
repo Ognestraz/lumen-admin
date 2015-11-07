@@ -173,7 +173,7 @@ class Image extends Model
         
         $dir = app()->basePath('public') . '/image/' . $variant . '/';
         if (false === is_dir($dir)) {
-            mkdir($dir);
+            mkdir($dir, 0777, true);
         }
         
         $img->save($dir . $this->path);        
