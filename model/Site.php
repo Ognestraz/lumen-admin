@@ -75,7 +75,25 @@ class Site extends Model
     {
         return !empty($this->title) ? $this->title : $this->name;
     }
-    
+
+    public function getKeywords()
+    {
+        if (!empty($this->keywords)) {
+            return $this->keywords;
+        }
+
+        return self::find(1)->keywords;
+    }
+
+    public function getDescription()
+    {
+        if (!empty($this->description)) {
+            return $this->description;
+        }
+
+        return self::find(1)->description;
+    }
+
     public function link() 
     {
         return url('/').'/'.$this->path;
