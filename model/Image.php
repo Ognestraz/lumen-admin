@@ -139,6 +139,22 @@ class Image extends Model
         $img->crop($width, $width > $height ? $height : null, $top, $left);
     }    
     
+    protected function _fitUpsizeImage($img, $item)
+    {
+        $width = $item['width'] > $img->width() ? $img->width() : $item['width'];
+        $height = $item['height'] > $img->height() ? $img->height() : $item['height'];
+        $k = $item['k'] ? $item['k'] : 0;
+        $d = $img->width()/$img->height() - 1;
+
+        if ($d > 0 && $d <= $k) {
+            $img->fit($width, $height);
+        } else {
+            $img->resize(null, $height, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+        }
+    }
+
     protected function _makeList($img, $item)
     {
         $make = key($item);
@@ -159,6 +175,10 @@ class Image extends Model
 
             case 'crop-width' :
                 $this->_cropWidthImage($img, $options);
+                break;
+
+            case 'fit-upsize' :
+                $this->_fitUpsizeImage($img, $options);
                 break;
         }
     }
