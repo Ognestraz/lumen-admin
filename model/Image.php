@@ -146,7 +146,7 @@ class Image extends Model
         $k = $item['k'] ? $item['k'] : 0;
         $d = $img->width()/$img->height() - 1;
 
-        if ($d > 0 && $d <= $k) {
+        if ($d && $d >= $k) {
             $img->fit($width, $height);
         } else {
             $img->resize(null, $height, function ($constraint) {
