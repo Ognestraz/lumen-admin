@@ -281,6 +281,50 @@ if (! function_exists('elixir')) {
     }
 }
 
+if (!function_exists('subdomainStatic')) {
+
+    /**
+     * Get the path to subdomain file.
+     *
+     * @param  string  $file
+     * @return string
+     *
+     * @throws \InvalidArgumentException
+     */
+    function subdomainStatic($file, $subdomain = null)
+    {
+        if (null === $subdomain) {
+            $subdomain = 'static';
+        }
+        
+        $domain = $_SERVER['SERVER_NAME'];
+        return '//' . $subdomain . '.' . $domain . '/' . str_replace('/build/', '', $file);
+    }
+
+}
+
+if (!function_exists('subdomainImage')) {
+
+    /**
+     * Get the path to subdomain file.
+     *
+     * @param  string  $file
+     * @return string
+     *
+     * @throws \InvalidArgumentException
+     */
+    function subdomainImage($file, $subdomain = null) 
+    {
+        if (null === $subdomain) {
+            $subdomain = 'image';
+        }
+
+        $domain = $_SERVER['SERVER_NAME'];
+        return '//' . $subdomain . '.' . $domain . '/' . str_replace('/image/', '', $file);
+    }
+
+}
+
 if (! function_exists('env')) {
     /**
      * Gets the value of an environment variable. Supports boolean, empty and null.
