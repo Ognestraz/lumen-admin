@@ -313,14 +313,14 @@ if (!function_exists('subdomainImage')) {
      *
      * @throws \InvalidArgumentException
      */
-    function subdomainImage($file, $subdomain = null) 
+    function subdomainImage($src, $subdomain = null)
     {
         if (null === $subdomain) {
             $subdomain = 'image';
         }
 
         $domain = $_SERVER['SERVER_NAME'];
-        return '//' . $subdomain . '.' . $domain . '/' . str_replace('/image/', '', $file);
+        return str_replace(['/image/', $domain], ['/', $subdomain . '.' . $domain], $src);
     }
 
 }
