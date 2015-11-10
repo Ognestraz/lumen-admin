@@ -1,5 +1,5 @@
 <li data-id="<?=$image->id?>" class="js-list-group-item js-item<?=($image->act ? '' : ' disabled')?>">
-    <img src="<?=$image->src('icon')?>" class="image" />
+    <img src="<?=subdomainImage($image->src('icon'))?>" class="image" />
     <a href="<?=url('/')?>/admin/image/act/<?=$image->id?>" class="act img-checkbox <?=($image->act ? 'enabled' : 'disabled')?> js-ajax"></a>
     <a href="<?=url('/')?>/admin/image/<?=$image->id?>/edit" class="edit js-ajax" data-target="#image-area">
         <img src="<?=url('/')?>/assets/images/edit.png">
@@ -7,7 +7,7 @@
     <a href="<?=url('/')?>/admin/image/<?=$image->id?>" class="js-ajax delete">
         <img src="<?=url('/')?>/assets/images/delete.png">
     </a>
-    <a href="<?=$image->src()?>" rel="prettyPhoto[image]" class="zoom">
+    <a href="<?=subdomainImage($image->src())?>" rel="prettyPhoto[image]" class="zoom">
         <img src="<?=url('/')?>/assets/images/zoom.png">
     </a>
     <div class="full">
