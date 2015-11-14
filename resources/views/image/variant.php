@@ -1,6 +1,6 @@
 <div class="row image-crop-holder">
     <div class="col-lg-12">
-        <button class="original" data-src="<?=$image->srcNoCache('original')?>">Оригинал</button> 
+        <button class="original" data-src="<?=subdomainImage($image->srcNoCache('original'))?>">Оригинал</button> 
         <button class="release">Убрать выделение</button> 
         <button class="crop">Обрезать</button>
 
@@ -41,7 +41,7 @@
     </div>
     <div class="col-lg-12">
         <div class="image-crop">
-            <img class="target-image-crop" data-id="<?=$image->id?>" src="<?=$image->srcNoCache($variant)?>" />
+            <img class="target-image-crop" data-id="<?=$image->id?>" src="<?=subdomainImage($image->srcNoCache($variant))?>" />
         </div>
     </div>
 </div>

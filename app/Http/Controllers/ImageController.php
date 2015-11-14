@@ -110,7 +110,7 @@ class ImageController extends AdminController
         
         $this->result['action'] = 'update';
         $this->result['make'] = 'crop';
-        $this->result['data']['image'] = $image->src($variant).'?r='.rand();
+        $this->result['data']['image'] = subdomainImage($image->src($variant).'?r='.rand());
         
         return $this->result();
 
