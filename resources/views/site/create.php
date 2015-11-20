@@ -76,6 +76,19 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
+                                            <label>Действия</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="hidden" name="act" value="0" />
+                                                    <input type="checkbox" name="act" value="1"<?=$site->act ? ' checked' : ''?> /> Активен
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="hidden" name="approved" value="0" />
+                                                    <input type="checkbox" name="approved" value="1"<?=$site->approved ? ' checked' : ''?> /> Подтвержден
+                                                </label>
+                                            </div>
                                             <label>Меню</label>
                                             <input type="hidden" name="inmenu" value="1" />
                                             <?php

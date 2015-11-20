@@ -16,6 +16,7 @@ class CreateSiteTable extends Migration {
 		{
 			$table->increments('id');
                         $table->boolean('act');
+                        $table->boolean('approved');
                         $table->boolean('block');
                         $table->boolean('system');
                         $table->integer('parent');
