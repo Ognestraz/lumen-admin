@@ -281,6 +281,26 @@ if (! function_exists('elixir')) {
     }
 }
 
+if (!function_exists('isSubdomain')) {
+
+    /**
+     * Check is the path to subdomain file.
+     *
+     * @param  string  $subdomain
+     * @return bool
+     *
+     */
+    function isSubdomain($subdomain)
+    {
+        if (isset($_SERVER['SERVER_NAME']) && isset($_SERVER['HTTP_HOST'])) {
+            return $subdomain . '.' . $_SERVER['SERVER_NAME'] === $_SERVER['HTTP_HOST'];
+        }
+        
+        return false;
+    }
+
+}
+
 if (!function_exists('subdomainStatic')) {
 
     /**
@@ -297,8 +317,12 @@ if (!function_exists('subdomainStatic')) {
             $subdomain = 'static';
         }
         
-        $domain = $_SERVER['SERVER_NAME'];
-        return '//' . $subdomain . '.' . $domain . '/' . str_replace('/build/', '', $file);
+        if (isset($_SERVER['SERVER_NAME'])) {
+            $domain = $_SERVER['SERVER_NAME'];
+            return '//' . $subdomain . '.' . $domain . '/' . str_replace('/build/', '', $file);
+        }
+        
+        return $src;
     }
 
 }
@@ -319,8 +343,12 @@ if (!function_exists('subdomainImage')) {
             $subdomain = 'image';
         }
 
-        $domain = $_SERVER['SERVER_NAME'];
-        return str_replace(['/image/', $domain], ['/', $subdomain . '.' . $domain], $src);
+        if (isset($_SERVER['SERVER_NAME'])) {
+            $domain = $_SERVER['SERVER_NAME'];
+            return str_replace(['/image/', $domain], ['/', $subdomain . '.' . $domain], $src);
+        }
+        
+        return $src;
     }
 
 }

@@ -74,3 +74,9 @@ $app->group([
 
         $app->get('/logout', array('uses' => 'MainController@logout'));
 });
+
+$app->group(['namespace' => 'Admin\Http\Controllers'], function () use ($app) {
+    if (isSubdomain('image')) {
+        $app->get('{variant}/{path:[a-zA-Z0-9_\-\/\.]*}', array('uses' => 'ImageController@image'));
+    }
+});
