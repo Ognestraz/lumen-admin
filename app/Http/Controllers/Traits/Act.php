@@ -4,7 +4,7 @@ trait Act
 {
     public function act($id)
     {
-        $act = (int) $this->model($id)->act();
+        $act = (int) $this->model($id)->methodAct();
         return $this->result(['act' => $act]);
     }
 }

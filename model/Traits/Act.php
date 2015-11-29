@@ -7,7 +7,8 @@ trait Act {
         return $query->where('act', $act);
     }
     
-    public function act($f = null) {
+    public function methodAct($f = null)
+    {
         
         $this->act = is_null($f) ? !$this->act : (int)$f;
         $this->save();
