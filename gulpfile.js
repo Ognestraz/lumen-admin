@@ -27,12 +27,9 @@ elixir(function(mix) {
         "bower_components/jquery/dist/jquery.min.js",
         "bower_components/bootstrap/dist/js/bootstrap.min.js",
         "bower_components/metisMenu/dist/metisMenu.min.js",
-        "bower_components/raphael/raphael-min.js",
-        "bower_components/morrisjs/morris.min.js",
         "bower_components/datatables/media/js/jquery.dataTables.min.js",
         "bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js",
         "bower_components/jquery-prettyPhoto/js/jquery.prettyPhoto.js",
-        "js/morris-data.js",
         "dist/js/sb-admin-2.js"
     ], 'public/js/admin-sb2.js', 'resources/assets/sb-admin-2');
 });
